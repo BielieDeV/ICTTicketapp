@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Login Page
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //TicketList
 Route::get('/ticketlist', function () {
     return view('ticketlist');

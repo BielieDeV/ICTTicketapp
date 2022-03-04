@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@extends('layouts.app')
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-      </head>
-    </head>
-    <body class="antialiased">
-        <div class="card">
-          <div class="card-body">Basic Card</div>
-        </div>
-    </body>
-</html>
+@section('content')
+<div>
+
+
+</div>
+
+@endsection

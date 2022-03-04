@@ -18,7 +18,16 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //TicketList
 Route::get('/ticketlist', function () {
-    return view('ticketlist');
+
+            $ticketdata = array('ticketnumber' => $ticketnumber,
+                            'subject' => $ticketsubect,
+                            'ticketcreation' => $createdon,
+                            'customername' => $customername,
+                            'ticketuser' => $assingnedto
+                            'state' => $State);
+        ]
+
+    return view('ticketlist',compact('ticketdata'));
 });
 //TicketView
 Route::get('/ticketview', function () {

@@ -27,27 +27,27 @@ Route::get('/home', function () {
 Route::get('/tickets', function () {
 
 
-    return view('ticketlist',['ticketnumber' => '5256' ]);
+    return view('ticket/ticketlist',['ticketnumber' => '5256' ]);
 });
 //TicketView
-Route::get('ticket/ticket', function () {
-    return view('ticketview');
+Route::get('/ticket', function () {
+    return view('ticket/ticketview');
 });
 //TicketCreate/edit
 Route::get('/ticketcreate', function () {
-    return view('ticketcreate');
+    return view('ticket/ticketcreate');
 });
 //CustomerList
 Route::get('/customers', function () {
-    return view('customerlist');
+    return view('Customer/customerlist');
 });
 //Customer Create
 Route::get('/customercreate', function () {
-    return view('customercreate');
+    return view('Customer/customercreate');
 });
 //CustomerView
 Route::get('/customer', function () {
-    return view('customerview');
+    return view('Customer//customerview');
 });
 
 //POSTS

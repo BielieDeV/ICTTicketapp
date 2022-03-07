@@ -5,6 +5,10 @@
 			<div class="page-main is-expanded">
 
 						<!--Page header-->
+						<div class="container-fluid p-5 text-black text-center" >
+							<a href="ticketcreate" class="btn btn-primary">Create ticket</a>
+							<a href="customercreate" class="btn btn-primary">Create Customer</a>
+						</div>
 							<div class="page-header d-xl-flex d-block">
 								<div class="page-leftheader">
 									<h4 class="page-title"><span class="font-weight-normal text-muted ms-2">Customers</span></h4>
@@ -16,9 +20,6 @@
 								<div class="card ">
 									<div class="card-header border-0 d-sm-max-flex">
 										<h4 class="card-title">Customers List</h4>
-										<div class="card-options mt-sm-max-2">
-											<a href="/customercreate" class="btn btn-success me-3"><i class="feather feather-user-plus"></i> Add Customer</a>
-										</div>
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">

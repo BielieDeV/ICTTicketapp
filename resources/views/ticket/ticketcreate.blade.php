@@ -3,6 +3,10 @@
 @section('content')
 <div class="page-main is-expanded">
 							<!--Page header-->
+							<div class="container-fluid p-5 text-black text-center" >
+							  <a href="tickets" class="btn btn-primary">Tickets</a>
+							  <a href="customers" class="btn btn-primary">Customers</a>
+							</div>
 							<div class="page-header d-xl-flex d-block">
 								<div class="page-leftheader">
 									<h4 class="page-title"><span class="font-weight-normal text-muted ms-2">Create Ticket</span></h4>
@@ -29,24 +33,17 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label mb-0 mt-2">Email address <span class="text-red">*</span></label>
-													</div>
-													<div class="col-md-9">
-														<input type="text" class="form-control" placeholder="Email" value="" name="email">
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
                         <div class="form-group">
   												<div class="row">
   													<div class="col-md-3">
   														<label class="form-label mb-0 mt-2">Customer</label>
   													</div>
-  													<div class="col-md-9">
-  														<input type="text" class="form-control" placeholder="Customer" value="" name="customer">
-  													</div>
+														<div class="col-md-9">
+															<select class="form-control form-select select2 select2-hidden-accessible" data-placeholder="Select Customer" name="customer" data-select2-id="select2-data-1-jz52" tabindex="-1" aria-hidden="true">
+																<option label="Select Customer" data-select2-id="select2-data-3-qefy"></option>
+																<option value="Critical">$customer</option>
+															</select>
+														</div>
   												</div>
   											</div>
 												<div class="row">

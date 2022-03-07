@@ -4,6 +4,10 @@
 <div class="page">
 			<div class="page-main">
 							<!--Page header-->
+							<div class="container-fluid p-5 text-black text-center" >
+							  <a href="tickets" class="btn btn-primary">Tickets</a>
+							  <a href="customers" class="btn btn-primary">Customers</a>
+							</div>
 								<div class="page-header d-xl-flex d-block">
 									<div class="page-leftheader">
 										<h4 class="page-title"><span class="font-weight-normal text-muted ms-2">Customer</span></h4>

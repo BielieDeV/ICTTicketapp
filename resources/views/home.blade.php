@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container-fluid p-5 bg-primary text-white text-center">
+        <h2 class="">Welcome<br></h2>
+</div>
+<div class="container-fluid p-5 text-black text-center" >
+  <a href="ticketcreate" class="btn btn-primary">Create ticket</a>
+  <a href="tickets" class="btn btn-primary">Tickets</a>
+  <a href="customers" class="btn btn-primary">Customers</a>
+  <a href="customercreate" class="btn btn-primary">Create Customer</a>
+</div>
+<br>
 
                 <!--Footer-->
           			<footer class="footer">

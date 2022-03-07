@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Login Page
 Auth::routes();
+//GETS
+//
 //Home Page - nav
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Home Page
@@ -23,18 +26,11 @@ Route::get('/home', function () {
 //TicketList
 Route::get('/tickets', function () {
 
-            //!$ticketdata = array('ticketnumber' => $ticketnumber,
-                            //'subject' => $ticketsubect,
-                            //'ticketcreation' => $createdon,
-                            //'customername' => $customername,
-                            //'ticketuser' => $assingnedto,
-                            //'state' => $State);
 
-
-    return view('ticketlist',);
+    return view('ticketlist',['ticketnumber' => '5256' ]);
 });
 //TicketView
-Route::get('/ticket', function () {
+Route::get('ticket/ticket', function () {
     return view('ticketview');
 });
 //TicketCreate/edit
@@ -53,3 +49,5 @@ Route::get('/customercreate', function () {
 Route::get('/customer', function () {
     return view('customerview');
 });
+
+//POSTS

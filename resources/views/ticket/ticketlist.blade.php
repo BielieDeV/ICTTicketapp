@@ -146,7 +146,7 @@
 																			<td>
 																				<input type="checkbox" name="student_checkbox[]" class="checkall" value="29"></td>
 																				<td>
-																					<a href="">SPG-29</a>
+																					<a href="">{{$ticketnumber}}</a>
 																					 <span class="badge badge-danger-light">Overdue</span>
 																				 </td>
 																				 <td>Pasquale Kessler</td>
@@ -160,10 +160,7 @@
 																				 <td>
 																					 <span class="badge badge-info">Inprogress</span>
 																				 </td>
-																				 <td>
-																					 <a href="javascript:void(0)" data-id="29" id="assigned" class="btn btn-outline-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Assign">Assign                            </a>
-																	</td>
-																	<td style="display: none;">9 years ago</td>
+																				<td style="display: none;">9 years ago</td>
 																	<td style="display: none;">
 																		<div class="d-flex">
 																			<a href="" class="action-btns1 edit-testimonial">

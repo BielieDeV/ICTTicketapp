@@ -10,7 +10,7 @@
 							</div>
 								<div class="page-header d-xl-flex d-block">
 									<div class="page-leftheader">
-										<h4 class="page-title"><span class="font-weight-normal text-muted ms-2">Customer</span></h4>
+										<h4 class="page-title"><span class="font-weight-normal text-muted ms-2">Create Customer</span></h4>
 									</div>
 								</div>
 							<!--End Page header-->
@@ -22,32 +22,32 @@
 										<h4 class="card-title">Create Customer</h4>
 									</div>
 
-									<form method="POST" action="">
-
+									<form method="POST" action="/storecustomer">
+										@csrf
 										<div class="card-body">
 												<div class="row">
 														<div class="col-sm-6 col-md-6">
 															<div class="form-group">
 																<label class="form-label">First Name <span class="text-red">*</span></label>
-																<input type="text" class="form-control " name="firstname" value="">
+																<input type="text" class="form-control " name="firstname" >
 															</div>
 														</div>
 														<div class="col-sm-6 col-md-6">
 															<div class="form-group">
 																<label class="form-label">Last Name <span class="text-red">*</span></label>
-																<input type="text" class="form-control " name="lastname" value="">
+																<input type="text" class="form-control " name="lastname" >
 															</div>
 														</div>
 														<div class="col-sm-6 col-md-6">
 															<div class="form-group">
 																<label class="form-label">Email address <span class="text-red">*</span></label>
-																<input type="email" class="form-control  " name="email" value="">
+																<input type="email" class="form-control  " name="email" >
 															</div>
 														</div>
 														<div class="col-sm-6 col-md-6">
 																<div class="form-group">
 																	<label class="form-label">Mobile Number</label>
-																	<input type="text" class="form-control " name="phone" value="">
+																	<input type="text" class="form-control " name="cell-number" >
 																</div>
 															</div>
 													</div>
@@ -55,7 +55,7 @@
 
 											<div class="col-md-12 card-footer">
 													<div class="form-group float-end">
-														<input type="submit" class="btn btn-secondary" value="Create Customer" onclick="this.disabled=true;this.form.submit();">
+														<input type="submit" class="btn btn-success" value="Create Customer" onclick="this.disabled=true;this.form.submit();">
 													</div>
 											</div>
 

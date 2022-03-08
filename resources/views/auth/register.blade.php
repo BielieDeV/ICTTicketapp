@@ -66,6 +66,11 @@
 
                             <div class="col-md-6">
                                 <input id="cell-number" type="text" class="form-control" name="cell-number">
+                                @error('cell-number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

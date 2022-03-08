@@ -24,6 +24,9 @@ class CreateTicketTable extends Migration
             $table->string('assignedto');
             $table->string('notes');
             $table->integer('ticketnumber')->unique();
+            $table->timestamp('starttime');
+            $table->timestamp('endtime');
+            $table->decimal('timespent');
         });
     }
 

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\TicketController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,40 +17,41 @@ use App\Http\Controllers\Auth\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Auths
 Auth::routes();
-//GETS
-//
 //Home Page - nav
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Home Page
 Route::get('/home', function () {
     return view('home');
 });
+//Ticket Pages
+//GETS
+
 //TicketList
 Route::get('/tickets', function () {
-
-
-    return view('ticket/ticketlist',['ticketnumber' => '5256' ]);
+    return view('ticket/list',['ticketnumber' => '5256' ]);
 });
 //TicketView
 Route::get('/ticket', function () {
-    return view('ticket/ticketview');
+    return view('ticket/view');
 });
 //TicketCreate/edit
 Route::get('/ticketcreate', function () {
-    return view('ticket/ticketcreate');
-});
-//CustomerList
-Route::get('/customers', function () {
-    return view('Customer/customerlist');
-});
-//Customer Create
-Route::get('/customercreate', function () {
-    return view('Customer/customercreate');
-});
-//CustomerView
-Route::get('/customer', function () {
-    return view('Customer//customerview');
+    return view('ticket/create');
 });
 
-//POSTS
+//POST
+
+
+//Customer Pages
+//GETS
+
+//CustomerList
+Route::get('/customers',[App\Http\Controllers\CustomerController::class, 'list'])->name('Customer/list');
+//Customer Create
+Route::get('/customercreate', [App\Http\Controllers\CustomerController::class, 'create'])->name('Customer/create');
+//CustomerView
+Route::get('/customer', [App\Http\Controllers\CustomerController::class, 'view'])->name('Customer/view');
+//POST
+Route::post('/storecustomer', [App\Http\Controllers\CustomerController::class, 'storecustomer'])->name('/storecustomer');

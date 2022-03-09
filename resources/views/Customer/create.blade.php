@@ -22,7 +22,7 @@
 										<h4 class="card-title">Create Customer</h4>
 									</div>
 
-									<form method="POST" action="/storecustomer">
+									<form method="POST" action="customersave">
 										@csrf
 										<div class="card-body">
 												<div class="row">

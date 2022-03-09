@@ -18,7 +18,8 @@
 									<div class="card-header border-0">
 										<h4 class="card-title">New Ticket</h4>
 									</div>
-									<form action="" method="post" id="formdata" enctype="multipart/form-data">
+									<form action="/storeticket" method="post" id="formdata" enctype="multipart/form-data">
+									@csrf
 										<input type="hidden" name="_token" value="tgT6sZadzLBvL4gXu4RbC91DcOp0M8BMHi1niF5Q">
 								</div>
 										<div class="card-body">

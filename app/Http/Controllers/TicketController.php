@@ -12,9 +12,11 @@ class TicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function list()
     {
-        //
+      $tickets = Tickets::all();
+
+      return view ('ticket.list',compact('tickets'));
     }
 
     /**
@@ -24,7 +26,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view('ticket.create');
     }
 
     /**
@@ -33,9 +35,19 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeticket(Request $ticketdata)
     {
-        //
+      return Tickets::create([
+
+      'firstname' => $ticketdata['firstname'],
+      'lastname' => $ticketdata['lastname'],
+      'email' => $ticketdata['email'],
+      'cellnumber' => $ticketdata['cell-number'],
+
+      ]);
+
+        return redirect ('ticketdata');
+
     }
 
     /**
@@ -44,7 +56,7 @@ class TicketController extends Controller
      * @param  \App\Models\Tickets  $tickets
      * @return \Illuminate\Http\Response
      */
-    public function show(Tickets $tickets)
+    public function view(Tickets $tickets)
     {
         //
     }

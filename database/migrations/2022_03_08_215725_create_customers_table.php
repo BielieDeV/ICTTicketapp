@@ -15,11 +15,12 @@ class CreateCustomersTable extends Migration
     {
       Schema::create('customers', function (Blueprint $table) {
           $table->id();
-          $table->timestamp('createdate');
+          $table->timestamp('updated_at');
+          $table->timestamp('created_at');
           $table->string('firstname');
           $table->string('lastname');
           $table->string('email')->unique();
-          $table->string('custnumber')->unique();
+          $table->integer('custnumber')->unique();
           $table->string('cellnumber');
           $table->boolean('SLA')->default('0');
           $table->longText('notes');

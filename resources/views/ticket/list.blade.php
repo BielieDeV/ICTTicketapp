@@ -150,7 +150,7 @@
 																			<td>
 																				<input type="checkbox" name="student_checkbox[]" class="checkall" value="29"></td>
 																				<td>
-																					<a href="">{{$ticketnumber}}</a>
+																					<a href=""></a>
 																					 <span class="badge badge-danger-light">Overdue</span>
 																				 </td>
 																				 <td>Pasquale Kessler</td>

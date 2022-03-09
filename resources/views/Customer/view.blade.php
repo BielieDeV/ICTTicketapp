@@ -40,10 +40,7 @@
 																<img src="" class="brround avatar-xxl" alt="default">
 
 															</div>
-															<a href="#" class="text-dark">
-																<h5 class="mt-3 mb-1 font-weight-semibold2">Timothy L. Brodbeck</h5>
-
-															</a>
+															<h5 class="mt-3 mb-1 font-weight-semibold2">{{customer}}</h5>
 															<small class="text-muted ">customer@gmail.com</small>
 														</div>
 													</div>

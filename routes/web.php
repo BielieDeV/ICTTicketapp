@@ -6,17 +6,6 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TicketController;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 //Auths
 Auth::routes();
 //Home Page - nav
@@ -35,20 +24,22 @@ Route::get('/ticket', [App\Http\Controllers\TicketController::class, 'view'])->n
 Route::get('/ticketcreate', [App\Http\Controllers\TicketController::class, 'create'])->name('ticket/create');
 //POST
 //Create Ticket
-Route::post('/storeticket', [App\Http\Controllers\CustomerController::class, 'update'])->name('ticket/list');
+Route::post('/ticket.store', [App\Http\Controllers\CustomerController::class, 'update'])->name('ticket.store');
 //Update Tickets
-Route::post('/updateticket', [App\Http\Controllers\CustomerController::class, 'update'])->name('ticket/list');
+Route::post('/ticket.update', [App\Http\Controllers\CustomerController::class, 'update'])->name('ticket.update');
 
 //Customer Pages
 //GETS
 //CustomerList
-Route::get('/customers',[App\Http\Controllers\CustomerController::class, 'list'])->name('Customer/list');
+Route::get('/customers',[App\Http\Controllers\CustomerController::class, 'list'])->name('Customer.list');
 //Customer Create
 Route::get('/customercreate', [App\Http\Controllers\CustomerController::class, 'create'])->name('Customer/create');
 //CustomerView
 Route::get('/customer', [App\Http\Controllers\CustomerController::class, 'view'])->name('Customer/view');
 //POST
-//Create Customer page
-Route::post('/customersave', [App\Http\Controllers\CustomerController::class, 'storecustomer'])->name('Customer/list');
 //Update Customer
-Route::post('/updatecustomer', [App\Http\Controllers\CustomerController::class, 'update'])->name('Customer/list');
+Route::post('/customer.update',[App\Http\Controllers\CustomerController::class, 'updatecustomer'])->name('Customer.update');
+//Delete Customer
+Route::post('/customer.delete',[App\Http\Controllers\CustomerController::class, 'destroy'])->name('Customer.delete');
+//Create Customer page
+Route::post('/customer.save',[App\Http\Controllers\CustomerController::class, 'storecustomer'])->name('Customer.save');

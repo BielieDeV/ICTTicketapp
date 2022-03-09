@@ -22,7 +22,7 @@
 										<h4 class="card-title">Create Customer</h4>
 									</div>
 
-									<form method="POST" action="customersave">
+									<form method="POST" action="customer.save">
 										@csrf
 										<div class="card-body">
 												<div class="row">
@@ -47,7 +47,7 @@
 														<div class="col-sm-6 col-md-6">
 																<div class="form-group">
 																	<label class="form-label">Mobile Number</label>
-																	<input type="text" class="form-control " name="cell-number" >
+																	<input type="text" class="form-control " name="cellnumber" >
 																</div>
 															</div>
 													</div>

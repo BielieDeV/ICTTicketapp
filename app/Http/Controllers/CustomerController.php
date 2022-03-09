@@ -42,17 +42,9 @@ class CustomerController extends Controller
         "firstname" => $customerdata->{'firstname'},
         "lastname" => $customerdata->{'lastname'},
         "email" => $customerdata->{'email'},
-        "cell-number"=>$customerdata->{'cell-number'}
+        "cellnumber"=>$customerdata->{'cellnumber'}
       ]);
-      // $customer = new Customers([
-      //
-      //   $customer->firstname = $customerdata->{'firstname'},
-      //   $customer->lastname = $customerdata->{'lastname'},
-      //   $customer->email = $customerdata->{'email'},
-      //   $customer->cellnumber = $customerdata->{'cell-number'},
-      //
-      //
-      // ]);
+
 
         return view ('Customer.view',compact('customer'));
 
@@ -87,9 +79,16 @@ class CustomerController extends Controller
      * @param  \App\Models\Customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customers)
+    public function updatecustomer(Request $customerdata)
     {
-        //
+
+      Customers::where('email', $customerdata->{'email'})
+      ->update(["firstname" => $customerdata->{'firstname'},
+      "lastname" => $customerdata->{'lastname'},
+      "email" => $customerdata->{'email'},
+      "cellnumber"=> $customerdata->{'cellnumber'},
+      "SLA"=> $customerdata->{'SLA'},
+    ]);
     }
 
     /**
@@ -98,8 +97,11 @@ class CustomerController extends Controller
      * @param  \App\Models\Customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customers $customers)
+    public function destroy(Request $customerdata, Customers $customers)
     {
-        //
-    }
+      $customer = Customers::select('*')
+        ->where('email', '=', $customerdata->{'accounttodelete'});
+        $customer->delete();
+
+      return view ('Customer.list',compact('customers'));    }
 }

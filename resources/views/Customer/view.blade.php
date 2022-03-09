@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 				<div class="page">
 					<div class="page-main">
 						<div class="container-fluid p-5 text-black text-center" >
@@ -40,8 +39,8 @@
 																<img src="" class="brround avatar-xxl" alt="default">
 
 															</div>
-															<h5 class="mt-3 mb-1 font-weight-semibold2">{{customer}}</h5>
-															<small class="text-muted ">customer@gmail.com</small>
+															<h5 class="mt-3 mb-1 font-weight-semibold2">{{$customer->firstname}}</h5>
+															<small class="text-muted ">{{$customer->email}}</small>
 														</div>
 													</div>
 												</div>
@@ -54,62 +53,61 @@
 															<h4 class="card-title">Profile Details</h4>
 														</div>
 														<div class="card-body">
-															<form method="POST" action="" enctype="multipart/form-data">
+															<form method="POST" action="customer.update">
+																@csrf
 																<div class="row">
 																	<div class="col-sm-6 col-md-6">
 																		<div class="form-group">
 																			<label class="form-label">First Name<span class="text-red">*</span></label>
-																			<input type="text" class="form-control " name="firstname" value="Timothy">
-
+																			<input type="text" class="form-control " name="firstname" value="{{$customer->firstname}}">
 																		</div>
 																	</div>
 																	<div class="col-sm-6 col-md-6">
 																		<div class="form-group">
-																			<label class="form-label">Last Name<span class="text-red">*</span></label>
-																			<input type="text" class="form-control " name="lastname" value="L. Brodbeck">
-
+																			<label class="form-label">Last Name<span>*</span></label>
+																			<input type="text" class="form-control " name="lastname" value="{{$customer->lastname}}">
 																		</div>
 																	</div>
+																	<div class="col-sm-6 col-md-6">
 																		<div class="form-group">
 																			<label class="form-label">Email address</label>
-																			<input type="email" class="form-control" value="customer@gmail.com" readonly="">
-
+																			<input type="text" class="form-control" name="email" value="{{$customer->email}}" readonly="">
 																		</div>
 																	</div>
 																	<div class="col-sm-6 col-md-6">
 																		<div class="form-group">
 																			<label class="form-label">Mobile Number</label>
-																			<input type="text" class="form-control " value="1-217-896-7697" name="phone">
+																			<input type="text" class="form-control " value="{{$customer->cellnumber}}" name="cellnumber">
 																		</div>
 																		<div class="form-group">
 																			<label class="form-label">SLA</label>
-																			<select type="select" class="form-control " value="Yes" name="SLA">
-																					<option value="Yes">Yes</option>
-																					<option value="No">No</option>
+																			<select type="select" class="form-control " value="No" name="SLA">
+																					<option value="1">Yes</option>
+																					<option value="0">No</option>
 																			</select>
 																		</div>
 																	</div>
-
-
-
 																	<div class="col-md-12 card-footer ">
 																		<div class="form-group">
-																			<input type="submit" class="btn btn-secondary float-end " value="Save Changes" onclick="this.disabled=true;this.form.submit();">
+																			<input type="submit" class="btn btn-secondary float-end " value="Save Changes" onclick="this.form.submit();">
 																		</div>
 																	</div>
 																</div>
 															</form>
 														</div>
-													<div class="card">
+														<div class="card">
 														<div class="card-header">
 															<div class="card-title">Delete Account</div>
 														</div>
 														<div class="card-body">
-															<p>Once you delete this account, you can not access your account with the same credentials. You need to re-register your account.</p>
+															<p>Once you delete this account, you can not access this account . You need to re-register the customer.</p>
 
 														</div>
-														<div class="card-footer text-end">
-															<button class="btn btn-danger my-1" data-id="1" id="accountdelete" style="pointer-events: auto; cursor: not-allowed;" disabled="">Delete Account</button>
+															<form method="POST" action="customer.delete" enctype="multipart/form-data">
+																@csrf
+																<div class="card-footer text-end">
+																	<button class="btn btn-danger my-1" name="accounttodelete" value="{{$customer->email}}">Delete Account</button>
+															</form
 														</div>
 													</div>
 												</div>

@@ -14,7 +14,8 @@ class Customers extends Model
         'lastname',
         'email',
         'cellnumber',
-        'custnumber'
+        'custnumber',
+        'SLA',
     ];
 
 

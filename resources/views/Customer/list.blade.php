@@ -68,33 +68,33 @@
 														<th class="sorting" tabindex="0" aria-controls="support-customerlist" rowspan="1" colspan="1" style="width: 367px;" aria-label="Name: activate to sort column ascending">Name</th>
 														<th class="sorting" tabindex="0" aria-controls="support-customerlist" rowspan="1" colspan="1" style="width: 87px;" aria-label="Gender: activate to sort column ascending">Cell</th>
 														<th class="sorting" tabindex="0" aria-controls="support-customerlist" rowspan="1" colspan="1" style="width: 113px;" aria-label="User Type: activate to sort column ascending">SLA</th>
-														<th class="sorting" tabindex="0" aria-controls="support-customerlist" rowspan="1" colspan="1" style="width: 162px;" aria-label="Register Date: activate to sort column ascending">Register Date</th>
+														<th class="sorting" tabindex="0" aria-controls="support-customerlist" rowspan="1" colspan="1" style="width: 162px;" aria-label="Register Date: activate to sort column ascending">Customer Since</th>
 												</thead>
 
 												<tbody>
+													@foreach ($customers as $customer)
 													<tr class="odd">
 														<td class="dtr-control">1</td>
 														<td><input type="checkbox" name="customer_checkbox[]" class="checkall" value="1"></td>
 														<td>
 															<div>
-																<a href="#" class="h5">Timothy L. Brodbeck</a>
+																<a class="h5">{{$customer->firstname}} {{$customer->lastname}}</a>
 															</div>
 	                    				<small class="fs-12 text-muted">
-																<span class="font-weight-normal1">customer@gmail.com</span>
+																<span class="font-weight-normal1">{{$customer->email}}</span>
 															</small>
-															<a href="/customer" target="_blank">
-																<span class="badge badge-success text-white f-12">Login as</span>
-															</a>
 														</td>
-														<td>0720212232</td>
+														<td>{{$customer->cellnumber}}</td>
+														@if ($customer->SLA == 1)
+														<td>YES</td>
+														@else
 														<td>NO</td>
-														<td><span class="badge badge-success-dark">May-11-2012</span></td>
+														@endif
+														<td><span class="font-weight-normal">{{$customer->created_at}}</span></td>
 													</tr>
+													@endforeach
 												</tbody>
 											</table>
-
-											<div id="support-customerlist_processing" class="dataTables_processing card" style="display: none;">Processing...</div>
-
 										</div>
 									</div>
 

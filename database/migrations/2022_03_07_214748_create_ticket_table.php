@@ -13,21 +13,18 @@ class CreateTicketTable extends Migration
      */
     public function up()
     {
-        Schema::create('ticket', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->timestamps('created_at')->nulable();
-            $table->timestamps('updated_at')->nulable();
+            $table->timestamps();
             $table->string('customer')->nulable();
             $table->string('subject')->nulable();
-            $table->string('priority')->nulable();
-            $table->string('category')->nulable();
+            $table->string('priority')->nulable()->default("Low");
+            $table->string('category')->nulable()->default("");
             $table->string('status')->nulable()->default("Active");
-            $table->string('assignedto')->nulable();
-            $table->string('notes')->nulable();
-            $table->integer('ticketnumber')->nulable();
-            $table->timestamp('starttime')->nulable();
-            $table->timestamp('endtime')->nulable();
-            $table->decimal('timespent')->nulable();
+            $table->string('assignedto')->nulable()->default("");
+            $table->string('notes')->nulable()->default("");
+            $table->integer('ticketnumber')->nulable()->default(0);
+            $table->decimal('timespent')->nulable()->default(0);
         });
     }
 

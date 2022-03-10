@@ -20,12 +20,10 @@ class CreateCustomersTable extends Migration
           $table->string('firstname');
           $table->string('lastname');
           $table->string('email')->unique();
-          $table->integer('custnumber')->unique();
-          $table->string('cellnumber');
+          $table->integer('custnumber')->default("1213");
+          $table->string('cellnumber')->default("");
           $table->boolean('SLA')->default('0');
-          $table->longText('notes');
-          $table->string('Status');
-          $table->decimal('balance');
+          $table->string('Status')->default("");
         });
     }
 

@@ -26,7 +26,7 @@ Route::get('/ticketcreate', [App\Http\Controllers\TicketController::class, 'crea
 //Create Ticket
 Route::post('/ticket.save', [App\Http\Controllers\TicketController::class, 'storeticket'])->name('ticket.save');
 //Update Tickets
-Route::post('/ticket.update', [App\Http\Controllers\TicketController::class, 'update'])->name('ticket.update');
+Route::post('/ticket/update', [App\Http\Controllers\TicketController::class, 'update'])->name('ticket/update');
 
 //Customer Pages
 //GETS

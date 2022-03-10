@@ -73,8 +73,14 @@ class TicketController extends Controller
      */
     public function show($id)
     {
+
       $ticket = Tickets::findOrFail($id);
+      $email = $ticket->{'customer'};
+      //$customer = Customers::find($email);
+      //dd($email);
+
       return view ('ticket.view',compact('ticket'));
+
     }
 
     /**
@@ -98,15 +104,11 @@ class TicketController extends Controller
     public function update(Request $ticketdata)
     {
       Tickets::where('id', $ticketdata->{'id'})
-      ->update(["firstname" => $ticketdata->{'firstname'},
-      "lastname" => $ticketdata->{'lastname'},
-      "email" => $ticketdata->{'email'},
-      "cellnumber"=> $ticketdata->{'cellnumber'},
-      "SLA"=> $ticketdata->{'SLA'},
-      "notes"=>$tciketdata->{'comment'}
+      ->update(["notes" => $ticketdata->{'notes'},
+
     ]);
 
-    return view ('home');
+      return $this->list();
     }
 
     /**

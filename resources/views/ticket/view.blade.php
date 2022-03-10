@@ -32,7 +32,7 @@
 												</div>
 												<div class="card-body pt-2 readmores px-6 mx-1">
 													<div class="end">
-														<span>Latest Update:</span>
+														<span>Latest Update:{{$ticket->notes}}</span>
 													</div>
 
 												</div>
@@ -43,10 +43,11 @@
 												<div class="card-header border-0">
 													<h4 class="card-title">Add Note</h4>
 												</div>
-												<form method="POST" action="" enctype="multipart/form-data">
+												<form method="POST" action="/ticket/update" enctype="multipart/form-data">
+													@csrf
 													<input type="hidden" name="ticket_id" value="29">
 													<div class="card-body status">
-														<textarea class="summernote d-none " name="comment" aria-multiline="true" style="display: none;"></textarea>
+														<textarea class="summernote d-none " name="notes" aria-multiline="true" style="display: none;">{{$ticket->notes}}</textarea>
 														<div class="note-editor note-frame panel panel-default">
 															<div class="note-dropzone">
 															<div class="note-dropzone-message">
@@ -79,7 +80,7 @@
 
 													<div class="card-footer">
 														<div class="form-group float-end">
-															<input type="submit" class="btn btn-secondary" value="Add Note" onclick="this.disabled=true;this.form.submit();">
+															<input type="submit" class="btn btn-secondary" value="Add Note" onclick="this.form.submit();">
 														</div>
 													</div>
 												</form>
@@ -95,7 +96,6 @@
 													<div class="table-responsive tr-lastchild">
 														<table class="table mb-0 table-information">
 															<tbody>
-
 																<tr>
 																	<td>
 																		<span class="w-50">Ticket ID</span>
@@ -111,8 +111,7 @@
 																	</td>
 																	<td>:</td>
 																	<td>
-																		<span class="font-weight-semibold">Connection</span>
-																		<a href="javascript:void(0)" data-id="SPG-29" class="p-1 sprukocategory border border-primary br-7 text-white bg-primary ms-2"> <i class="feather feather-edit-2" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Change Category" aria-label="Change Category"></i></a>
+																		<span class="font-weight-semibold">{{$ticket->category}}</span>
 																	</td>
 																</tr>
 																<tr>
@@ -120,8 +119,8 @@
 																		<span class="w-50">Ticket Priority</span>
 																	</td>
 																	<td>:</td>
-																	<td id="priorityid">
-																			<span class="badge badge-danger-dark" style="color:black">High</span>
+																	<td name="priority">
+																			<span class="badge badge-danger-dark" style="color:black">{{$ticket->priority}}</span>
 																	</td>
 																</tr>
 																<tr>
@@ -130,7 +129,7 @@
 																	</td>
 																	<td>:</td>
 																	<td>
-																		<span class="font-weight-semibold">May-12-2012, 03:05</span>
+																		<span class="font-weight-semibold">{{$ticket->created_at}}</span>
 																	</td>
 																</tr>
 																<tr>
@@ -139,7 +138,7 @@
 																	</td>
 																	<td>:</td>
 																	<td>
-																		<span class="badge badge-info" style="color:black">Inprogress</span>
+																		<span class="badge badge-info" style="color:black">{{$ticket->status}}</span>
 																	</td>
 																</tr>
 
@@ -161,7 +160,7 @@
 
 														</div>
 														<a href="#" class="text-dark">
-															<h5 class="mb-1 font-weight-semibold2">Test customer</h5>
+															<h5 class="mb-1 font-weight-semibold2">Customer Name</h5>
 															<small class="text-muted ">test@rath.net
 															</small>
 														</a>

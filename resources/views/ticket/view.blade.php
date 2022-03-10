@@ -26,15 +26,13 @@
 												<div class="card-header border-0 mb-1 d-block">
 													<div class="d-sm-flex d-block">
 														<div>
-															<h4 class="card-title mb-1 fs-22">Subject </h4>
+															<h4 class="card-title mb-1 fs-22">{{$ticket->subject}}</h4>
 														</div>
 													</div>
-													<small class="fs-13">
-														<i class="feather feather-clock text-muted me-1"></i>Last Updated on <span class="text-muted">5 minutes ago</span></small>
 												</div>
 												<div class="card-body pt-2 readmores px-6 mx-1">
 													<div class="end">
-														<span>Latest Note here</span>
+														<span>Latest Update:</span>
 													</div>
 
 												</div>
@@ -72,34 +70,10 @@
 														</div>
 														<output class="note-status-output" role="status" aria-live="polite">
 														</output>
-
-
-
-
 										</div>
-
-														<div class="form-group">
-															<label class="form-label">Upload Image</label>
-															<div class="file-browser">
-																<div class="needsclick dropzone dz-clickable" id="document-dropzone"><div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div></div>
-															</div>
-															<small class="text-muted"><i>The file size should not be more than 3MB</i></small>
-														</div>
-
 														<div class="custom-controls-stacked d-md-flex" id="text">
 															<label class="form-label mt-1 me-5">Status</label>
-															<label class="custom-control form-radio success me-4">
-																<input type="radio" class="custom-control-input hold" name="status" value="Inprogress" checked="">
-																<span class="custom-control-label">Inprogress</span>
-															</label>
-															<label class="custom-control form-radio success me-4">
-																<input type="radio" class="custom-control-input hold" name="status" value="Solved">
-																<span class="custom-control-label">Solved</span>
-															</label>
-															<label class="custom-control form-radio success me-4">
-																<input type="radio" class="custom-control-input" name="status" id="onhold" value="On-Hold">
-																<span class="custom-control-label">Closed</span>
-															</label>
+															<span>{{$ticket->status}}</span>
 														</div>
 													</div>
 
@@ -128,7 +102,7 @@
 																	</td>
 																	<td>:</td>
 																	<td>
-																		<span class="font-weight-semibold">#SPG-29</span>
+																		<span class="font-weight-semibold">{{ticket->id}}</span>
 																	</td>
 																</tr>
 																<tr>

@@ -18,9 +18,8 @@
 									<div class="card-header border-0">
 										<h4 class="card-title">New Ticket</h4>
 									</div>
-									<form action="/storeticket" method="post" id="formdata" enctype="multipart/form-data">
-									@csrf
-										<input type="hidden" name="_token" value="tgT6sZadzLBvL4gXu4RbC91DcOp0M8BMHi1niF5Q">
+									<form action="ticket.save" method="post"  enctype="multipart/form-data">
+										@csrf
 								</div>
 										<div class="card-body">
 											<div class="form-group ">
@@ -40,9 +39,11 @@
   														<label class="form-label mb-0 mt-2">Customer</label>
   													</div>
 														<div class="col-md-9">
-															<select class="form-control form-select select2 select2-hidden-accessible" data-placeholder="Select Customer" name="customer" data-select2-id="select2-data-1-jz52" tabindex="-1" aria-hidden="true">
+															<select class="form-control form-select select2 select2-hidden-accessible" data-placeholder="Select Customer" name="customer" tabindex="-1" aria-hidden="true">
 																<option label="Select Customer" data-select2-id="select2-data-3-qefy"></option>
-																<option value="Critical">$customer</option>
+																@foreach ($customers as $customer)
+																<option value="{{$customer->email}}">{{$customer->firstname}} {{$customer->lastname}}</option>
+																@endforeach
 															</select>
 														</div>
   												</div>
@@ -52,7 +53,7 @@
 														<label class="form-label mb-0 mt-2">Priority </label>
 													</div>
 													<div class="col-md-9">
-														<select class="form-control form-select select2 select2-hidden-accessible" data-placeholder="Select Priority" name="priority" data-select2-id="select2-data-1-jz52" tabindex="-1" aria-hidden="true">
+														<select class="form-control form-select select2 select2-hidden-accessible" data-placeholder="Select Priority" name="priority" tabindex="-1">
 															<option label="Select Priority" data-select2-id="select2-data-3-qefy"></option>
 															<option value="Critical">Critical</option>
 															<option value="High">High</option>
@@ -62,7 +63,7 @@
 													</div>
                           <div class="card-footer">
                             <div class="form-group float-end">
-                              <input type="submit" class="btn btn-secondary btn-lg" value="Create Ticket" onclick="this.disabled=true;this.form.submit();">
+                              <input type="submit" class="btn btn-secondary btn-lg" value="Create Ticket" onclick="this.form.submit();">
                             </div>
                           </div>
 												</div>

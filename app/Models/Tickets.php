@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tickets extends Model
 {
-    use HasFactory;\
+//use Sortable;
+
+    use HasFactory;
 
     protected $fillable = [
         'customer',
@@ -17,7 +19,8 @@ class Tickets extends Model
         'status',
         'assignedto',
         'notes',
-        'ticketno'
+        'ticketno',
+        'status',
 
     ];
 
@@ -25,6 +28,7 @@ class Tickets extends Model
     protected $casts = [
         'updated_at' => 'datetime',
         'created_at' => 'datetime',
+
     ];
 
 }

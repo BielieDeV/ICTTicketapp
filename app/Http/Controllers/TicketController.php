@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tickets;
 use Illuminate\Http\Request;
+use App\Models\Customers;
+use App\Models\User;
 
 class TicketController extends Controller
 {
@@ -14,9 +16,14 @@ class TicketController extends Controller
      */
     public function list()
     {
-      $tickets = Tickets::all();
+      $customers = Customers::all();
 
-      return view ('ticket.list',compact('tickets'));
+      //$int = 0;
+      $tickets = Tickets::all();
+      $ticketcount = Tickets::count();
+      //$ticketcustomer = Customers::where ('email', '=', $ticket->{'customer'})->first();
+
+      return view ('ticket.list',compact('tickets','ticketcount'));
     }
 
     /**
@@ -26,7 +33,9 @@ class TicketController extends Controller
      */
     public function create()
     {
-        return view('ticket.create');
+      $customers = Customers::all();
+
+        return view('ticket.create',compact('customers'));
     }
 
     /**
@@ -37,16 +46,22 @@ class TicketController extends Controller
      */
     public function storeticket(Request $ticketdata)
     {
-      return Tickets::create([
 
-      'firstname' => $ticketdata['firstname'],
-      'lastname' => $ticketdata['lastname'],
-      'email' => $ticketdata['email'],
-      'cellnumber' => $ticketdata['cell-number'],
+        $ticket = Tickets::create([
+        "subject" => $ticketdata->{'subject'},
+        "customer" => $ticketdata->{'customer'},
+        "priority" => $ticketdata->{'priority'},
+
 
       ]);
+        //$int = 0;
+        $tickets = Tickets::all();
+        $ticketcount = Tickets::count();
+        $ticketcustomer = Customers::where ('email', '=', $ticket->{'customer'})->first();
+        //$ticketactive = Tickets::where('status' = 'Active')->count();
+        //$ticketclosed = Tickets::where('status' = 'Closed')->count();
 
-        return redirect ('ticketdata');
+        return view ('ticket.list',compact('tickets','ticketcount','ticketcustomer'));
 
     }
 
@@ -56,9 +71,11 @@ class TicketController extends Controller
      * @param  \App\Models\Tickets  $tickets
      * @return \Illuminate\Http\Response
      */
-    public function view(Tickets $tickets)
+    public function show($id)
     {
-        //
+      $ticketinfo = Tickets::where('id','=',$id);
+
+      return view ('ticket.view','ticketinfo');
     }
 
     /**
@@ -79,9 +96,18 @@ class TicketController extends Controller
      * @param  \App\Models\Tickets  $tickets
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tickets $tickets)
+    public function update(Request $ticketdata)
     {
-        //
+      Tickets::where('id', $ticketdata->{'id'})
+      ->update(["firstname" => $ticketdata->{'firstname'},
+      "lastname" => $ticketdata->{'lastname'},
+      "email" => $ticketdata->{'email'},
+      "cellnumber"=> $ticketdata->{'cellnumber'},
+      "SLA"=> $ticketdata->{'SLA'},
+      "notes"=>$tciketdata->{'comment'}
+    ]);
+
+    return view ('home');
     }
 
     /**

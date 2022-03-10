@@ -19,14 +19,14 @@ Route::get('/home', function () {
 //TicketList
 Route::get('/tickets', [App\Http\Controllers\TicketController::class, 'list'])->name('ticket/list');
 //TicketView
-Route::get('/ticket', [App\Http\Controllers\TicketController::class, 'view'])->name('ticket/view');
-//TicketCreate/edit
+Route::get('/ticket/{id}', [App\Http\Controllers\TicketController::class, 'show'])->name('ticket/view');
+//TicketCreate/edit View
 Route::get('/ticketcreate', [App\Http\Controllers\TicketController::class, 'create'])->name('ticket/create');
 //POST
 //Create Ticket
-Route::post('/ticket.store', [App\Http\Controllers\CustomerController::class, 'update'])->name('ticket.store');
+Route::post('/ticket.save', [App\Http\Controllers\TicketController::class, 'storeticket'])->name('ticket.save');
 //Update Tickets
-Route::post('/ticket.update', [App\Http\Controllers\CustomerController::class, 'update'])->name('ticket.update');
+Route::post('/ticket.update', [App\Http\Controllers\TicketController::class, 'update'])->name('ticket.update');
 
 //Customer Pages
 //GETS
@@ -36,6 +36,7 @@ Route::get('/customers',[App\Http\Controllers\CustomerController::class, 'list']
 Route::get('/customercreate', [App\Http\Controllers\CustomerController::class, 'create'])->name('Customer/create');
 //CustomerView
 Route::get('/customer', [App\Http\Controllers\CustomerController::class, 'view'])->name('Customer/view');
+Route::get('/customer/{id}', [App\Http\Controllers\CustomerController::class, 'show'])->name('Customer.show');
 //POST
 //Update Customer
 Route::post('/customer.update',[App\Http\Controllers\CustomerController::class, 'updatecustomer'])->name('Customer.update');

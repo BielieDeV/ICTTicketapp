@@ -14,6 +14,8 @@ class CustomerController extends Controller
      */
     public function list()
     {
+
+      //$customers = Customers::sortable()->paginate(5);
         $customers = Customers::all();
 
         return view ('Customer.list',compact('customers'));
@@ -56,9 +58,13 @@ class CustomerController extends Controller
      * @param  \App\Models\Customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function view(Customers $customers)
+    public function show($id)
     {
-        //
+
+      //$customer = Customers::select()->all()->where('id','=',$id);
+      //dd($customer);
+
+      return view ('Customer.view',compact('customer'));
     }
 
     /**
@@ -89,6 +95,9 @@ class CustomerController extends Controller
       "cellnumber"=> $customerdata->{'cellnumber'},
       "SLA"=> $customerdata->{'SLA'},
     ]);
+
+    return view ('home');
+
     }
 
     /**

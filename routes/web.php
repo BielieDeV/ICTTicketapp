@@ -41,6 +41,6 @@ Route::get('/customer/{id}', [App\Http\Controllers\CustomerController::class, 's
 //Update Customer
 Route::post('/customer/update',[App\Http\Controllers\CustomerController::class, 'updatecustomer'])->name('Customer.update');
 //Delete Customer
-Route::post('/customer.delete',[App\Http\Controllers\CustomerController::class, 'destroy'])->name('Customer.delete');
+Route::post('/customer/delete',[App\Http\Controllers\CustomerController::class, 'destroy'])->name('Customer.delete');
 //Create Customer page
 Route::post('/customer.save',[App\Http\Controllers\CustomerController::class, 'storecustomer'])->name('Customer.save');

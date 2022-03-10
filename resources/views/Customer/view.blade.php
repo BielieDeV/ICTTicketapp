@@ -103,7 +103,7 @@
 															<p>Once you delete this account, you can not access this account . You need to re-register the customer.</p>
 
 														</div>
-															<form method="POST" action="customer.delete" enctype="multipart/form-data">
+															<form method="POST" action="/customer/delete" enctype="multipart/form-data">
 																@csrf
 																<div class="card-footer text-end">
 																	<button class="btn btn-danger my-1" name="accounttodelete" value="{{$customer->email}}">Delete Account</button>

@@ -111,6 +111,7 @@ class CustomerController extends Controller
       $customer = Customers::select('*')
         ->where('email', '=', $customerdata->{'accounttodelete'});
         $customer->delete();
+        $customers = Customers::all();
 
-      return view ('Customer.list',compact('customers'));    }
+      return view ('/Customer/list',compact('customers'));    }
 }

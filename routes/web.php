@@ -39,7 +39,7 @@ Route::get('/customer', [App\Http\Controllers\CustomerController::class, 'view']
 Route::get('/customer/{id}', [App\Http\Controllers\CustomerController::class, 'show'])->name('Customer.show');
 //POST
 //Update Customer
-Route::post('/customer.update',[App\Http\Controllers\CustomerController::class, 'updatecustomer'])->name('Customer.update');
+Route::post('/customer/update',[App\Http\Controllers\CustomerController::class, 'updatecustomer'])->name('Customer.update');
 //Delete Customer
 Route::post('/customer.delete',[App\Http\Controllers\CustomerController::class, 'destroy'])->name('Customer.delete');
 //Create Customer page

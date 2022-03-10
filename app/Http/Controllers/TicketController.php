@@ -73,9 +73,8 @@ class TicketController extends Controller
      */
     public function show($id)
     {
-      $ticketinfo = Tickets::where('id','=',$id);
-
-      return view ('ticket.view','ticketinfo');
+      $ticket = Tickets::findOrFail($id);
+      return view ('ticket.view',compact('ticket'));
     }
 
     /**

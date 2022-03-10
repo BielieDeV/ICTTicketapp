@@ -91,7 +91,7 @@
 																		</thead>
 																		<tbody>
 																			@foreach ($tickets as $ticket)
-																		<tr class="odd" ><td class="dtr-control"><a href="ticket.view/{{$ticket->id}}">{{$ticket->id}}</a></td>
+																		<tr class="odd" ><td class="dtr-control"><a href="ticket/{{$ticket->id}}">{{$ticket->id}}</a></td>
 
 																				 <td>{{$ticket->customer}}</td>
 																				 <td>

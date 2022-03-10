@@ -6,14 +6,14 @@
 </div>
 <div class="container-fluid p-5 text-black text-center" >
 
-  <a href="tickets" class="btn btn-primary">Tickets</a>
-  <a href="customers" class="btn btn-primary">Customers</a>
+  <a href="/tickets" class="btn btn-primary">Tickets</a>
+  <a href="/customers" class="btn btn-primary">Customers</a>
 
 
 </div>
 <div class="container-fluid p-5 text-black text-center" >
-  <a href="ticketcreate" class="btn btn-primary">Create ticket</a>
-  <a href="customercreate" class="btn btn-primary">Create Customer</a>
+  <a href="/ticketcreate" class="btn btn-primary">Create ticket</a>
+  <a href="/customercreate" class="btn btn-primary">Create Customer</a>
 </div>
 <br>
 

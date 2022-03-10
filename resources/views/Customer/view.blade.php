@@ -53,7 +53,7 @@
 															<h4 class="card-title">Profile Details</h4>
 														</div>
 														<div class="card-body">
-															<form method="POST" action="customer.update">
+															<form method="POST" action="/customer/update">
 																@csrf
 																<div class="row">
 																	<div class="col-sm-6 col-md-6">

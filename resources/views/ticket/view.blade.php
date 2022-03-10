@@ -102,7 +102,7 @@
 																	</td>
 																	<td>:</td>
 																	<td>
-																		<span class="font-weight-semibold">{{ticket->id}}</span>
+																		<span class="font-weight-semibold">{{$ticket->id}}</span>
 																	</td>
 																</tr>
 																<tr>

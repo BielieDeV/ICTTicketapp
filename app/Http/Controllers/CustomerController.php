@@ -61,7 +61,7 @@ class CustomerController extends Controller
     public function show($id)
     {
 
-      //$customer = Customers::select()->all()->where('id','=',$id);
+      $customer = Customers::findOrFail($id);
       //dd($customer);
 
       return view ('Customer.view',compact('customer'));
